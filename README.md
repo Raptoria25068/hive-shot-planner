@@ -54,10 +54,15 @@ node --test test/*.test.cjs test/*.test.mjs
 | `hive-engine.js` | Physics, aiming and solving. Runs in a web worker, and loads in Node for the tests |
 | `js/` | Settings, map, side view, 3D view, readout, calibration and export |
 | `vendor/three.module.min.js` | three.js r170 for the 3D view, loaded only when it opens |
+| `fonts/` | The Dinofans display font and its license note |
 | `test/` | Engine and settings tests |
 
 ## License
 
-MIT: see [LICENSE](LICENSE). three.js is MIT-licensed by the three.js authors ([vendor/three.LICENSE](vendor/three.LICENSE)). The display font, Titan One, is served by Google Fonts under the SIL Open Font License.
+MIT: see [LICENSE](LICENSE). three.js is MIT-licensed by the three.js authors ([vendor/three.LICENSE](vendor/three.LICENSE)).
+
+### Font
+
+The display font is **Dinofans** by [Khurasan](https://khurasanstudio.com/), which the author releases free for personal and commercial use. It is included unmodified in `fonts/`, with the author's terms in [fonts/Dinofans-LICENSE.txt](fonts/Dinofans-LICENSE.txt). The font is not covered by this project's MIT license. Body and code text use Instrument Sans and JetBrains Mono from Google Fonts (SIL Open Font License).
 
 BIOBUZZ and FIRST Tech Challenge are trademarks of FIRST. This is a team-made tool, not affiliated with or endorsed by FIRST.

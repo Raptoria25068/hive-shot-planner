@@ -1,7 +1,13 @@
 /* Base styles in the raptoriaftc.com look: dark tone tokens, type, reset, buttons and the
-   film-grain overlay. The display face is Titan One (SIL Open Font License). */
+   film-grain overlay. */
+
+/* Display font: Dinofans, (c) 2024 Khurasan (https://khurasanstudio.com/), which the author
+   releases free for personal and commercial use. It ships unmodified in fonts/ with the
+   author's terms in fonts/Dinofans-LICENSE.txt, and is not covered by this project's MIT license. */
+@font-face { font-family: "Dinofans"; src: url("fonts/Dinofans.ttf") format("truetype"); font-display: swap; }
+
 :root {
-  --font-display: "Titan One", Impact, sans-serif;
+  --font-display: "Dinofans", Impact, sans-serif;
   --font-body: "Instrument Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --ease: cubic-bezier(.16, 1, .3, 1);

@@ -144,7 +144,7 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .out { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
 .ohead { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
 .opos { font: 12px var(--font-mono); color: var(--mute); }
-.opos b { display: block; font: 400 18px var(--font-display); color: var(--ink); letter-spacing: .01em; text-transform: uppercase; }
+.opos b { display: block; font: 400 20px var(--font-display); color: var(--ink); letter-spacing: .02em; text-transform: uppercase; }
 .pill { font: 400 14px var(--font-display); letter-spacing: .05em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; white-space: nowrap; border: 1px solid transparent; transition: background-color .3s, color .3s; }
 .pill.pop { animation: rt-hv-pop .45s var(--ease); }
 @keyframes rt-hv-pop { 35% { transform: scale(1.12); } }
