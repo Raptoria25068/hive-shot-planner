@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-tone="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HIVE Shot Planner — Raptoria 25068</title>
+<meta name="description" content="Where your robot can score from in BIOBUZZ, and with what hood angle and flywheel speed.">
+<link rel="canonical" href="https://raptoria25068.github.io/hive-shot-planner/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Raptoria 25068">
+<meta property="og:title" content="HIVE Shot Planner">
+<meta property="og:description" content="Where your robot can score from in BIOBUZZ, and with what hood angle and flywheel speed. Free and open source.">
+<meta property="og:url" content="https://raptoria25068.github.io/hive-shot-planner/">
+<meta property="og:image" content="https://raptoria25068.github.io/hive-shot-planner/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HIVE Shot Planner: a BIOBUZZ field heatmap of where a robot can score">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Titan+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="planner.css">
+</head>
+<body class="hive">
+<header class="hv-top">
+  <div class="hv-brand">
+    <p class="eyebrow"><b>BIOBUZZ</b> Raptoria 25068 · tools</p>
+    <h1 class="hv-title">HIVE <span>Shot</span> Planner</h1>
+    <p class="hv-sub">Where your robot can score from, and with what settings.</p>
+  </div>
+  <div class="hv-actions">
+    <select id="preset" class="chip-select" aria-label="Presets"></select>
+    <button class="chip" type="button" id="calBtn">Calibrate</button>
+    <select id="exportSel" class="chip-select" aria-label="Export lookup table"><option value="">Export…</option><option value="csv">CSV table</option><option value="json">JSON</option><option value="java">Java class</option></select>
+    <button class="chip" type="button" id="shareBtn">Share link</button>
+    <button class="chip unit-chip" type="button" id="units" aria-label="Switch units between inches and centimetres">in</button>
+  </div>
+  <div class="hv-status" role="status" aria-live="polite"><span id="stat">Starting…</span><span class="bar"><i id="prog"></i></span></div>
+</header>
+
+<main class="hv-app">
+  <section class="col-in" id="inputs" aria-label="Settings"></section>
+
+  <section class="col-map" aria-label="Field map">
+    <div class="panel mappanel">
+      <div class="maphead">
+        <div class="seg" id="layers" role="group" aria-label="Map shows"></div>
+        <div class="mapopts"><label class="tog"><input type="checkbox" id="contours"> Contours</label><button class="chip" type="button" id="snapA">Snapshot A</button></div>
+      </div>
+      <div class="fieldwrap" id="fw">
+        <canvas id="base" aria-hidden="true"></canvas>
+        <canvas id="heat" aria-hidden="true"></canvas>
+        <canvas id="ov" tabindex="0" aria-label="Field. Move the pointer or use the arrow keys to inspect a spot; click to pin it."></canvas>
+        <div class="tip" id="tip" hidden></div>
+      </div>
+      <div class="legend" id="legend"></div>
+      <div class="caption"><span>Audience at the bottom · red alliance left · robot-center positions</span><span>Hover to inspect · click to pin · arrow keys move the pin</span></div>
+    </div>
+    <div class="panel cov" id="cov"></div>
+  </section>
+
+  <aside class="col-out" aria-label="Readout"><div class="panel out" id="out"></div></aside>
+</main>
+
+<footer class="hv-foot"><p class="hv-note">A planning model, not a promise: calibrate it with your own test shots. Field numbers from BIOBUZZ Section 9 (TU02).</p>
+  <p class="hv-note">Made by <a href="https://raptoriaftc.com/">Raptoria 25068</a> · <a href="https://github.com/Raptoria25068/hive-shot-planner">Source on GitHub</a> (MIT license)</p></footer>
+
+<dialog id="calib" class="dlg" aria-labelledby="calib-h"><div class="dlg-h"><h2 id="calib-h">Calibrate from test shots</h2></div><div class="calbody"></div></dialog>
+<dialog id="view3d" class="dlg dlg3d" aria-labelledby="v3d-h">
+  <div class="dlg-h"><h2 id="v3d-h">3D view</h2><span class="dlg-btns"><button class="chip" type="button" data-act="replay3d">Replay</button><button class="chip" type="button" data-act="close3d">Close</button></span></div>
+  <div id="stage3d"></div>
+  <p class="caption">Drag to orbit · scroll to zoom</p>
+</dialog>
+<input type="file" id="importFile" accept="application/json,.json" hidden>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
